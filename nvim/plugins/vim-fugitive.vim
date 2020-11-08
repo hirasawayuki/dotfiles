@@ -1,0 +1,12 @@
+nnoremap [fugitive] <Nop>
+nmap ,g [fugitive]
+nnoremap <silent>[fugitive]b :<C-u>Gblame<CR>
+nnoremap <silent>[fugitive]c :<C-u>Gcommit<CR>
+nnoremap <silent>[fugitive]d :<C-u>Gdiff<CR>
+nnoremap <silent>[fugitive]e :<C-u>Gedit<CR>
+nnoremap <silent>[fugitive]m :<C-u>Gmerge<CR>
+nnoremap <silent>[fugitive]l :<C-u>Glog<CR>
+nnoremap <silent>[fugitive]p :<C-u>Gpush<CR>
+nnoremap <silent>[fugitive]r :<C-u>Gread<CR>
+nnoremap <silent>[fugitive]w :<C-u>Gwrite<CR>
+nnoremap <silent>[fugitive]s :<C-u>Gstatus<CR>
