@@ -10,7 +10,7 @@ source $PLUGINS/vim-fugitive.vim
 source $PLUGINS/vim-gitgutter.vim
 source $PLUGINS/vim-indent-guides.vim
 
-call plug#begin('~/dotfiles/.vim/plugged')
+call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'bronson/vim-trailing-whitespace'
   Plug 'cohama/lexima.vim'
