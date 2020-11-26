@@ -1,12 +1,17 @@
+function! LightlineFilename()
+  return expand('%')
+endfunction
+
 let g:lightline = {
-      \ 'colorscheme': 'deus',
+      \ 'colorscheme': 'ayu_mirage',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'filename', 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok', 'readonly', 'modified'] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead',
-      \   'ale': 'ALEGetStatusLine'
+      \   'ale': 'ALEGetStatusLine',
+      \   'filename': 'LightlineFilename',
+      \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
 let g:lightline.component_expand = {
@@ -23,8 +28,6 @@ let g:lightline.component_type = {
       \     'linter_errors': 'error',
       \     'linter_ok': 'right',
       \ }
-" let g:lightline#ale#indicator_checking = "\uf110"
-" let g:lightline#ale#indicator_infos = "\uf129"
 let g:lightline#ale#indicator_warnings = "⚠ "
 let g:lightline#ale#indicator_errors = "⨉ "
 let g:lightline#ale#indicator_ok = "OK"

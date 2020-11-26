@@ -1,11 +1,11 @@
 set completeopt=menuone,noinsert
 
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ asyncomplete#force_refresh()
+" inoremap <silent><expr> <TAB>
+"   \ pumvisible() ? "\<C-n>" :
+"   \ <SID>check_back_space() ? "\<TAB>" :
+"   \ asyncomplete#force_refresh()
 nnoremap [coc] <Nop>
-nmap <Space>c [coc]
+nmap ,c [coc]
 nmap <silent>[coc]d <Plug>(coc-definition)zz
 nmap <silent>[coc]t <Plug>(coc-type-definition)
 nmap <silent>[coc]i <Plug>(coc-implementation)

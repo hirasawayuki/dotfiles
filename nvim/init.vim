@@ -1,5 +1,3 @@
-let g:python_host_prog  = $HOME . '/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
 let $PLUGINS='~/.config/nvim/plugins'
 source $PLUGINS/ale.vim
 source $PLUGINS/coc-nvim.vim
@@ -9,23 +7,32 @@ source $PLUGINS/nerdtree.vim
 source $PLUGINS/vim-fugitive.vim
 source $PLUGINS/vim-gitgutter.vim
 source $PLUGINS/vim-indent-guides.vim
+autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+autocmd BufNewFile,BufRead *.coffee set filetype=javascript
+
+let g:python_host_prog  = $HOME . '/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
+let g:usefile=['go', 'php', 'ruby', 'javascript', 'typescript', 'json', 'html', 'css', 'vim', 'javascript.jsx', 'typescript.tsx']
 
 call plug#begin('~/.vim/plugged')
-  Plug 'airblade/vim-gitgutter'
-  Plug 'bronson/vim-trailing-whitespace'
-  Plug 'cohama/lexima.vim'
+  Plug 'airblade/vim-gitgutter', { 'for': usefile }
+  Plug 'bronson/vim-trailing-whitespace', { 'for': usefile }
+  Plug 'cohama/lexima.vim', { 'for': usefile }
   Plug 'itchyny/lightline.vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  Plug 'maximbaz/lightline-ale'
+  Plug 'maximbaz/lightline-ale', { 'for': usefile }
+  Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx', 'typescript.tsx'] }
   Plug 'nathanaelkane/vim-indent-guides'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'scrooloose/nerdtree'
-  Plug 'tpope/vim-commentary'
-  Plug 'tpope/vim-endwise'
+  Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+  Plug 'scrooloose/nerdtree', { 'on': 'NERDTree' }
+  Plug 'tpope/vim-commentary', { 'for': usefile }
+  Plug 'tpope/vim-endwise', { 'for': usefile }
   Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-surround'
-  Plug 'w0rp/ale'
+  Plug 'tpope/vim-surround', { 'for': usefile }
+  Plug 'tpope/vim-rhubarb', { 'for': usefile }
+  Plug 'w0rp/ale', { 'for': usefile }
 call plug#end()
 
 set clipboard=unnamed
@@ -41,7 +48,6 @@ set termguicolors
 set ttimeoutlen=10
 set updatetime=300
 
-let g:ale_open_list = 1
 hi clear CursorLine
 hi CursorLineNr gui=bold guifg=blue
 hi PmenuThumb guibg=#bfc2bc
@@ -50,7 +56,6 @@ hi PmenuSel guibg=#5cabdc
 hi Pmenu guibg=#fbfbf8
 hi VertSplit gui=NONE
 
-inoremap <expr><ESC> pumvisible() ? "\<C-e>" : "\<ESC>"
 nnoremap <ESC><ESC> :<C-u>nohl<CR>
 nnoremap <silent>j gj
 nnoremap <silent>k gk
@@ -71,11 +76,12 @@ nnoremap <silent>sw <C-w>l
 nnoremap <silent>ss :<C-u>sp<CR><C-w>jzz
 nnoremap <silent>sv :<C-u>vs<CR><C-w>lzz
 nnoremap <silent>sq :<C-u>q<CR>
-tnoremap <ESC> <C-\><C-n>:<C-u>q<CR>
+tnoremap <C-q> <C-\><C-n>
 
-if !has('gui_running') && $TMUX !=# ''
-    augroup Tmux
-        autocmd!
-        autocmd VimEnter,VimLeave * silent !tmux set status
-    augroup END
-endif
+" vim を開いたら tmux のステータスラインを非表示にする
+" if !has('gui_running') && $TMUX !=# ''
+"     augroup Tmux
+"         autocmd!
+"         autocmd VimEnter,VimLeave * silent !tmux set status
+"     augroup END
+" endif
