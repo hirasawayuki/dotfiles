@@ -6,3 +6,4 @@ nnoremap <silent>[fzf]f :<C-u>Files<CR>
 nnoremap <silent>[fzf]g :<C-u>GFiles<CR>
 nnoremap <silent>[fzf]h :<C-u>History<CR>
 nnoremap <silent>q: :<C-u>History:<CR>
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)

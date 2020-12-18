@@ -1,1 +1,3 @@
-setlocal sw=2 sts=2 ts=2 noexpandtab
+setlocal tabstop=4
+setlocal shiftwidth=4
+setlocal noexpandtab

@@ -1,3 +1,6 @@
+let g:python_host_prog  = $HOME . '/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
+let g:usefile=['go', 'php', 'ruby', 'javascript', 'typescript', 'json', 'html', 'css', 'vim', 'javascript.jsx', 'typescript.tsx']
 let $PLUGINS='~/.config/nvim/plugins'
 source $PLUGINS/ale.vim
 source $PLUGINS/coc-nvim.vim
@@ -7,13 +10,6 @@ source $PLUGINS/nerdtree.vim
 source $PLUGINS/vim-fugitive.vim
 source $PLUGINS/vim-gitgutter.vim
 source $PLUGINS/vim-indent-guides.vim
-autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
-autocmd BufNewFile,BufRead *.coffee set filetype=javascript
-
-let g:python_host_prog  = $HOME . '/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
-let g:usefile=['go', 'php', 'ruby', 'javascript', 'typescript', 'json', 'html', 'css', 'vim', 'javascript.jsx', 'typescript.tsx']
 
 call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter', { 'for': usefile }
@@ -85,3 +81,8 @@ tnoremap <C-q> <C-\><C-n>
 "         autocmd VimEnter,VimLeave * silent !tmux set status
 "     augroup END
 " endif
+"
+filetype plugin indent on
+autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+autocmd BufNewFile,BufRead *.coffee set filetype=javascript
