@@ -1,1 +1,1 @@
-nnoremap <silent>tr :<C-u>NERDTree<CR>
+nnoremap <silent>tr :<C-u>NERDTreeToggle<CR>

@@ -7,3 +7,5 @@ nnoremap <silent>[fzf]g :<C-u>GFiles<CR>
 nnoremap <silent>[fzf]h :<C-u>History<CR>
 nnoremap <silent>q: :<C-u>History:<CR>
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': 'ag --hidden --ignore .git -g ""'}), <bang>0)
