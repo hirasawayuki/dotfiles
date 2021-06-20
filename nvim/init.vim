@@ -11,15 +11,15 @@ source $PLUGINS/vim-fugitive.vim
 source $PLUGINS/vim-gitgutter.vim
 source $PLUGINS/vim-indent-guides.vim
 
-call plug#begin('~/.vim/plugged')
-  Plug 'airblade/vim-gitgutter', { 'for': usefile }
-  Plug 'bronson/vim-trailing-whitespace', { 'for': usefile }
-  Plug 'cohama/lexima.vim', { 'for': usefile }
+call plug#begin('~/.config/nvim/plugged')
+  Plug 'airblade/vim-gitgutter'
+  Plug 'bronson/vim-trailing-whitespace'
+  Plug 'cohama/lexima.vim'
   Plug 'fatih/vim-go', { 'for': ['go'] }
   Plug 'itchyny/lightline.vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  Plug 'maximbaz/lightline-ale', { 'for': usefile }
+  Plug 'maximbaz/lightline-ale'
   Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx', 'typescript.tsx'] }
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -27,13 +27,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'sebdah/vim-delve', { 'for': ['go'] }
   Plug 'slim-template/vim-slim'
   Plug 'thinca/vim-localrc'
-  Plug 'tpope/vim-repeat', { 'for': usefile }
-  Plug 'tpope/vim-commentary', { 'for': usefile }
-  Plug 'tpope/vim-endwise', { 'for': usefile }
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-surround', { 'for': usefile }
-  Plug 'tpope/vim-rhubarb', { 'for': usefile }
-  Plug 'w0rp/ale', { 'for': usefile }
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-rhubarb'
+  Plug 'w0rp/ale'
 call plug#end()
 
 set clipboard=unnamed
@@ -116,6 +116,7 @@ if has('syntax')
   call ZenkakuSpace()
 endif
 
+syntax on
 filetype plugin indent on
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
